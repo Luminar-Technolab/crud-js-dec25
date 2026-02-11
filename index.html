@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD APP</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- bootstrap cdn link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center mb-4 ">CRUD Application</h1>
+        <!-- form -->
+        <form id="userForm">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <input type="text" id="name" placeholder="Enter name" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <input type="email" id="email" placeholder="Enter email" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary w-100">Save</button>
+                </div>
+            </div>
+        </form>
+        <!-- table -->
+         <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr>
+                    <td>1</td>
+                    <td>name</td>
+                    <td>email</td>
+                    <td>
+                        <div class="d-flex">
+                            <button class="btn btn-warning">edit</button>
+                            <button class="btn btn-danger ms-3">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+         </table>
+    </div>
+</body>
+<script src="./script.js"></script>
+</html>
