@@ -1,12 +1,15 @@
 let users = []
 
 //get  form & tbody
-
 const form = document.getElementById('userForm')
 const tableBody = document.getElementById('tableBody')
 const editIndexInput = document.getElementById('editIndex')
 
-//add entry to users
+if(sessionStorage.getItem("users")){
+    users = JSON.parse(sessionStorage.getItem("users"))
+    displayUsers()
+}
+//add/edit entry to users
 form.addEventListener("submit",(e)=>{
     e.preventDefault()
     // get name & email
@@ -21,12 +24,14 @@ form.addEventListener("submit",(e)=>{
         editIndexInput.value = ""
     }
     form.reset()
-    console.log(users);
+    // console.log(users);
+    sessionStorage.setItem("users",JSON.stringify(users))
     displayUsers()
 })
 //users should be listed inside table body
-const displayUsers = ()=>{
+function displayUsers(){
     tableBody.innerHTML = ""
+  
     users.forEach((user,index)=>{
         tableBody.innerHTML += `
         <tr>
@@ -53,6 +58,8 @@ const editUser = (index)=>{
 const deleteUser = (index)=>{
     if(confirm('Are you sure, do you want to delete the data?')){
         users.splice(index,1)
+        //update users into storage
+        sessionStorage.setItem("users",JSON.stringify(users))
         displayUsers()
     }
 }
